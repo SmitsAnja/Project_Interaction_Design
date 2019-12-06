@@ -5,16 +5,30 @@ URI = "https://api.irail.be";
 var MyDateString = "";
 var SelfMadeTrainObject = {};
 var AftelTijd = "";
-
-
-// https://www.w3schools.com/howto/howto_js_countdown.asp
+var interval1;
+var interval2;
+var interval3;
 
 const init = function () {
   // getLocation();
-  getLiveBoard();
+  let DefaultStation = "Kortrijk";
+  getLiveBoard(DefaultStation);
 
   getDate();
+  changeStation();
 };
+
+const changeStation = function () {
+  const selectElement = document.querySelector('.js-dropdown');
+  selectElement.addEventListener('change', (event) => {
+    ChosenStation = event.target.value;
+    MyDateString = "";
+    AftelTijd = "";
+    SelfMadeTrainObject = {};
+    getLiveBoard(ChosenStation);
+  });
+
+}
 
 function getDate() {
   var MyDate = new Date();
@@ -30,107 +44,230 @@ function getDate() {
 }
 
 
-function progressBar(dataArrayTijdStamp) {
+function progressBar1(countDownDate) {
   var now = Math.round(new Date().getTime() / 1000)
   var startDate = Math.floor(new Date(now - 15 * 60));
 
-  const progressBar = document.getElementById('myBar');
-  const endDate = dataArrayTijdStamp[0];
+  const progressBar = document.getElementById('myBar-1');
+  const endDate = countDownDate;
 
   let totalTime = endDate - startDate;
   let progress = now - startDate;
   let percentage = (progress / totalTime) * 100;
   console.log(percentage);
   if (percentage < 90) {
-    progressBar.style.width = `${percentage}%`;
+    progressBar.style.width = `${percentage * 2}%`;
   }
   else if (percentage > 90 & percentage < 100) {
-    progressBar.style.width = `${100}%`;
+    progressBar.style.width = `${100 * 2}%`;
 
   }
   else if (percentage > 100) {
-    progressBar.style.width = `${100}%`;
+    progressBar.style.width = `${100 * 2}%`;
+    progressBar.style.display = `none`;
+  }
+
+}
+
+function progressBar2(countDownDate) {
+  var now = Math.round(new Date().getTime() / 1000)
+  var startDate = Math.floor(new Date(now - 15 * 60));
+
+  const progressBar = document.getElementById('myBar-2');
+  const endDate = countDownDate;
+
+  let totalTime = endDate - startDate;
+  let progress = now - startDate;
+  let percentage = (progress / totalTime) * 100;
+  console.log(percentage);
+  if (percentage < 90) {
+    progressBar.style.width = `${percentage * 2}%`;
+  }
+  else if (percentage > 90 & percentage < 100) {
+    progressBar.style.width = `${100 * 2}%`;
+
+  }
+  else if (percentage > 100) {
+    progressBar.style.width = `${100 * 2}%`;
+    progressBar.style.display = `none`;
+  }
+
+}
+
+function progressBar3(countDownDate) {
+  var now = Math.round(new Date().getTime() / 1000)
+  var startDate = Math.floor(new Date(now - 15 * 60));
+
+  const progressBar = document.getElementById('myBar-3');
+  const endDate = countDownDate;
+
+  let totalTime = endDate - startDate;
+  let progress = now - startDate;
+  let percentage = (progress / totalTime) * 100;
+  console.log(percentage);
+  if (percentage < 90) {
+    progressBar.style.width = `${percentage * 2}%`;
+  }
+  else if (percentage > 90 & percentage < 100) {
+    progressBar.style.width = `${100 * 2}%`;
+    progressBar.style.display = `none`;
+
+  }
+  else if (percentage > 100) {
+    progressBar.style.width = `${100 * 2}%`;
     progressBar.style.backgroundColor = `red`;
   }
 
 }
 
-function countDown(dataArrayTijdStamp) {
+function countDown1() {
   // Set the date we're counting down to7
   // for (var addobject of dataArrayTijdStamp) {
-  var countDownDate = dataArrayTijdStamp[0];
+  var countDownDate = SelfMadeTrainObject.realtime[0];
   console.log(countDownDate);
 
   // Update the count down every 1 second
-  var interval = setInterval(function () {
 
-    // Get today's date and time
-    var now = Math.round(new Date().getTime() / 1000);
-    console.log(now);
 
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
+  // Get today's date and time
+  var now = Math.round(new Date().getTime() / 1000);
 
-    // Time calculations for days, hours, minutes and seconds
-    var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
-    var minutes = Math.floor((distance % (60 * 60)) / (60));
-    var seconds = Math.floor((distance % (60)));
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
 
-    // Display the result in the element with id="demo"
-    AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
-    document.getElementById("js-timer").innerHTML = AftelTijd;
-    console.log(AftelTijd);
+  // Time calculations for days, hours, minutes and seconds
+  var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
+  var minutes = Math.floor((distance % (60 * 60)) / (60));
+  var seconds = Math.floor((distance % (60)));
 
-    // If the count down is finished, write some text
-    if (distance < 0) {
-      // clearInterval(interval);
-      AftelTijd = "Trein vertrokken";
-      document.getElementById("js-timer").innerHTML = AftelTijd;
-      console.log("Expired")
-    }
-    progressBar(dataArrayTijdStamp);
-  }, 1000);
+  // Display the result in the element with id="demo"
+  AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
+  document.getElementById("js-timer-1").innerHTML = AftelTijd;
+  console.log(AftelTijd);
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    // clearInterval(interval);
+    AftelTijd = "Trein vertrokken";
+    document.getElementById("js-timer-1").innerHTML = AftelTijd;
+    console.log("Expired")
+  }
+  progressBar1(countDownDate);
+
 
 }
 
-const showHtml = function (queryStation, dataArrayEndStation, dataArrayTijd) {
+function countDown2() {
+  // Set the date we're counting down to7
+  // for (var addobject of dataArrayTijdStamp) {
+  var countDownDate = SelfMadeTrainObject.realtime[1];
+  console.log(countDownDate);
+
+  // Get today's date and time
+  var now = Math.round(new Date().getTime() / 1000);
+  console.log(now);
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
+  var minutes = Math.floor((distance % (60 * 60)) / (60));
+  var seconds = Math.floor((distance % (60)));
+
+  // Display the result in the element with id="demo"
+  AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
+  document.getElementById("js-timer-2").innerHTML = AftelTijd;
+  console.log(AftelTijd);
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    // clearInterval(interval);
+    AftelTijd = "Trein vertrokken";
+    document.getElementById("js-timer-2").innerHTML = AftelTijd;
+    console.log("Expired")
+  }
+  progressBar2(countDownDate);
+
+}
+
+function countDown3() {
+  // Set the date we're counting down to7
+  // for (var addobject of dataArrayTijdStamp) {
+  var countDownDate = SelfMadeTrainObject.realtime[2];
+  console.log(countDownDate);
+
+  // Get today's date and time
+  var now = Math.round(new Date().getTime() / 1000);
+  console.log(now);
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
+  var minutes = Math.floor((distance % (60 * 60)) / (60));
+  var seconds = Math.floor((distance % (60)));
+
+  // Display the result in the element with id="demo"
+  AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
+  document.getElementById("js-timer-3").innerHTML = AftelTijd;
+  console.log(AftelTijd);
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    // clearInterval(interval);
+    AftelTijd = "Trein vertrokken";
+    document.getElementById("js-timer-3").innerHTML = AftelTijd;
+    console.log("Expired")
+  }
+  progressBar3(countDownDate);
+
+}
+
+const showHtml = function (queryStation, dataArrayEndStation, dataArrayTijd, dataArrayDelays) {
   // console.log(InfoStations);
   let counter = 0;
+  let html = "";
   for (const station of InfoStations) {
     // console.log(station);
-    html = `<div class="c-dashboard__item">
-            <p class="">Tijd tot trein vertrekt</p>
-            <p class="js-timer" id="js-timer">hier tijd</p>
+    html += `<div class="c-dashboard__item">
+            <p class="">Trein vertrekt over</p>
+            <p class="js-timer" id="js-timer-${counter + 1}">hier tijd</p>
         </div>
         <div class="c-dashboard__item">
             <p class="js-location">${queryStation}</p>
             <p class="js-currenthour">${dataArrayTijd[counter]}</p>
+            <p class="js-vertraging">${dataArrayDelays[counter] / 60} min vertraging</p>
         </div>
         <div class="c-dashboard__item">
             <p class="js-endstation">${dataArrayEndStation[counter]}</p>
         </div>
-        <div class="c-dashboard__item u-x-span-3-bp3">
-            <div class="c-progress" id="c-progress">
-              <div class="c-bar" id="myBar">
-              </div>
+        <div class="c-dashboard__item_train u-x-span-3-bp3">
+            <div class="c-track" id="c-progress">
+                <svg class="c-track__train" id="myBar-${counter + 1}">
+                    <use xlink:href="#svg-train"></use>
+                </svg>
             </div>
         </div>`;
-    document.querySelector(".js-main").innerHTML += html;
+
     counter += 1;
     if (counter == 6) {
       break;
     }
+    console.log(html);
   }
+  document.querySelector(".js-main").innerHTML = html;
+  console.log("toegevoegd aan queryselector");
 
 }
-// delay: 60 = 60 seconden vertraging
+
 
 let showResultLiveBoard = function (queryResponse) {
   // Zorg dat de juiste locatie weergegeven wordt, volgens wat je uit de API terug krijgt.
   let queryStation = queryResponse.station;
   // console.log(queryStation);
   InfoStations = queryResponse.departures.departure;
-
 
   dataArrayTijd = [];
   for (var addobject of InfoStations) {
@@ -164,6 +301,15 @@ let showResultLiveBoard = function (queryResponse) {
     dataArrayDelays.push(CurrentTrain);
   }
 
+  dataArrayTotalTijdStamp = [];
+  for (var addobject of InfoStations) {
+    // console.log(tijd.time);
+    let timestamp = parseInt(addobject.time);
+    let delay = parseInt(addobject.delay);
+    let realtime = timestamp + delay;
+    dataArrayTotalTijdStamp.push(realtime);
+  }
+
   dataArrayEndStation = [];
   for (var addobject of InfoStations) {
     // console.log(tijd.time);
@@ -176,15 +322,20 @@ let showResultLiveBoard = function (queryResponse) {
   SelfMadeTrainObject.currentstation = queryStation;
   SelfMadeTrainObject.trainid = dataArrayTrajects;
   SelfMadeTrainObject.delays = dataArrayDelays;
+  SelfMadeTrainObject.realtime = dataArrayTotalTijdStamp;
   SelfMadeTrainObject.endstation = dataArrayEndStation;
   console.log(SelfMadeTrainObject);
-  showHtml(queryStation, dataArrayEndStation, dataArrayTijd);
-  countDown(dataArrayTijdStamp);
+  console.log("---------" + dataArrayTijdStamp + dataArrayDelays);
+  showHtml(queryStation, dataArrayEndStation, dataArrayTijd, dataArrayDelays);
+  // countDown1(SelfMadeTrainObject);
+  interval1 = setInterval(countDown1, 1000);
+  interval2 = setInterval(countDown2, 1000);
+  interval3 = setInterval(countDown3, 1000);
 };
 
-let getLiveBoard = async function () {
+let getLiveBoard = async function (ChosenStation) {
   // Eerst bouwen we onze url op
-  const SERVER_ENDPOINT = `${URI}/liveboard/?station=Kortrijk&arrdep=departure&lang=en&format=json&fast=false&alerts=false`;
+  const SERVER_ENDPOINT = `${URI}/liveboard/?station=${ChosenStation}&arrdep=departure&lang=en&format=json&fast=false&alerts=false`;
   // Met de fetch API proberen we de data op te halen.
   const response = await fetch(SERVER_ENDPOINT, { headers: customHeaders });
   const queryResponse = await response.json();
