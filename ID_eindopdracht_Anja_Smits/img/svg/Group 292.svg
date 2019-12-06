@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Group_292" data-name="Group 292" transform="translate(-16 -40)">
+    <rect id="Rectangle_158" data-name="Rectangle 158" width="32" height="32" transform="translate(16 40)" fill="#e9ebf8"/>
+    <g id="Group_291" data-name="Group 291" transform="translate(20 42.5)">
+      <g id="Group_290" data-name="Group 290" transform="translate(0 2.154)">
+        <path id="Rectangle_155" data-name="Rectangle 155" d="M0,0H23.692V15.615a8.077,8.077,0,0,1-8.077,8.077H0Z" transform="translate(0)" fill="#5c83ff"/>
+        <path id="Rectangle_156" data-name="Rectangle 156" d="M0,0H23.692V10.231A13.462,13.462,0,0,1,10.231,23.692H0Z" transform="translate(0)" fill="#4969cc"/>
+        <path id="Rectangle_157" data-name="Rectangle 157" d="M0,0H23.692A23.692,23.692,0,0,1,0,23.692H0Z" transform="translate(0)" fill="#33498e"/>
+      </g>
+      <text id="IT" transform="translate(3.47 19)" fill="#e9ebf8" font-size="20" font-family="Yantramanav-Bold, Yantramanav" font-weight="700"><tspan x="0" y="0">IT</tspan></text>
+    </g>
+  </g>
+</svg>

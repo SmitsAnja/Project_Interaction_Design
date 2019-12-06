@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>InstaTrain</title>
+    <meta name="description" content="THE website that helps to catch your train!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#33498e">
+    <meta name="msapplication-TileColor" content="#33498e">
+    <meta name="theme-color" content="#33498e">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/screen.css">
+
+    <script defer src="./script/irailapi.js"></script>
+</head>
+
+<body>
+    <header class="o-row--header">
+        <div class="o-container">
+            <div class="c-header">
+                <div class="c-logo">
+                    <svg class="c-logo__symbol" xmlns="http://www.w3.org/2000/svg" width="56" height="56"
+                        viewBox="0 0 56 56">
+                        <g id="Group_292" data-name="Group 292" transform="translate(-16 -40)">
+                            <rect id="Rectangle_158" data-name="Rectangle 158" width="32" height="32"
+                                transform="translate(16 40)" fill="#e9ebf8" />
+                            <g id="Group_291" data-name="Group 291" transform="translate(20 42.5)">
+                                <g id="blue-rectangles" data-name="Group 290" transform="translate(0 2.154)">
+                                    <path id="bottom-rectangle" data-name="Rectangle 155"
+                                        d="M0,0H23.692V15.615a8.077,8.077,0,0,1-8.077,8.077H0Z" transform="translate(0)"
+                                        fill="#5c83ff" />
+                                    <path id="middle-rectangle" data-name="Rectangle 156"
+                                        d="M0,0H23.692V10.231A13.462,13.462,0,0,1,10.231,23.692H0Z"
+                                        transform="translate(0)" fill="#4969cc" />
+                                    <path id="top-rectangle" data-name="Rectangle 157"
+                                        d="M0,0H23.692A23.692,23.692,0,0,1,0,23.692H0Z" transform="translate(0)"
+                                        fill="#33498e" />
+                                </g>
+                                <text id="IT" transform="translate(3.47 19)" fill="#e9ebf8"
+                                    font-family="Yantramanav-Bold, Yantramanav" font-weight="700">
+                                    <tspan x="0" y="0">IT</tspan>
+                                </text>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="c-logo">
+                    <p class="c-logo__title">InstaTrain</p>
+                </div>
+                <div class="c-logo">
+                    <p class="c-logo__ending">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56"
+                            height="56" viewBox="0 0 86 87">
+                            <defs>
+                                <clipPath id="clip-Artboard_1">
+                                    <rect width="86" height="87" />
+                                </clipPath>
+                            </defs>
+                            <g id="Artboard_1" data-name="Artboard – 1" clip-path="url(#clip-Artboard_1)">
+                                <rect width="86" height="87" fill="#fff" />
+                                <g id="Group_288" data-name="Group 288" transform="translate(0 -24)">
+                                    <rect id="Rectangle_159" data-name="Rectangle 159" width="86" height="87"
+                                        transform="translate(0 24)" fill="#fff" />
+                                    <path id="Rectangle_24" data-name="Rectangle 24"
+                                        d="M0,0H86a0,0,0,0,1,0,0V47A40,40,0,0,1,46,87H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"
+                                        transform="translate(0 24)" fill="#5c83ff" />
+                                    <path id="Rectangle_23" data-name="Rectangle 23"
+                                        d="M0,0H86a0,0,0,0,1,0,0V27A60,60,0,0,1,26,87H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"
+                                        transform="translate(0 24)" fill="#4969cc" />
+                                    <path id="Rectangle_16" data-name="Rectangle 16"
+                                        d="M0,0H86a0,0,0,0,1,0,0V1A86,86,0,0,1,0,87H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"
+                                        transform="translate(0 24)" fill="#33498e" />
+                                </g>
+                            </g>
+                        </svg>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="o-row">
+        <div class="o-container">
+            <p class="js-geolocation"> </p>
+            <div class="c-location">
+                <p class="c-form-field">
+                    <label class="c-label" for="select1">
+                        Dichtsbijzijnde locatie
+                    </label>
+                    <span class="c-custom-select">
+                        <select class="c-input c-custom-select__input" name="select1" id="select1">
+                            <option value="Kortrijk">Kortrijk</option>
+                            <option value="Gent">Gent</option>
+                            <option value="Antwerpen">Antwerpen</option>
+                            <option value="Brussel">Brussel</option>
+                        </select>
+                        <svg class="c-custom-select__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M7,10l5,5,5-5Z" />
+                        </svg>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="c-main js-main">
+        <!-- <div class="c-dashboard__item">
+            <p class="">Tijd over tot in station</p>
+            <p class="js-timer">5min 45sec</p>
+        </div>
+        <div class="c-dashboard__item">
+            <p class="js-location">MijnStation</p>
+            <p class="js-currenthour">uur</p>
+        </div>
+        <div class="c-dashboard__item">
+            <p class="js-endstation">aankomsts plaats</p>
+        </div>
+        <div class="c-dashboard__item u-x-span-3-bp3">
+            <p>trein.svg</p>
+        </div> -->
+
+    </section>
+</body>
+
+</html>
