@@ -43,7 +43,7 @@ function getDate() {
   console.log(MyDateString);
 }
 
-
+/* #region Progressbars */
 function progressBar1(countDownDate) {
   var now = Math.round(new Date().getTime() / 1000)
   var startDate = Math.floor(new Date(now - 15 * 60));
@@ -110,16 +110,93 @@ function progressBar3(countDownDate) {
   }
   else if (percentage > 90 & percentage < 100) {
     progressBar.style.width = `${100 * 2}%`;
-    progressBar.style.display = `none`;
 
   }
   else if (percentage > 100) {
     progressBar.style.width = `${100 * 2}%`;
-    progressBar.style.backgroundColor = `red`;
+    progressBar.style.display = `none`;
   }
 
 }
 
+function progressBar4(countDownDate) {
+  var now = Math.round(new Date().getTime() / 1000)
+  var startDate = Math.floor(new Date(now - 15 * 60));
+
+  const progressBar = document.getElementById('myBar-4');
+  const endDate = countDownDate;
+
+  let totalTime = endDate - startDate;
+  let progress = now - startDate;
+  let percentage = (progress / totalTime) * 100;
+  console.log(percentage);
+  if (percentage < 90) {
+    progressBar.style.width = `${percentage * 2}%`;
+  }
+  else if (percentage > 90 & percentage < 100) {
+    progressBar.style.width = `${100 * 2}%`;
+
+  }
+  else if (percentage > 100) {
+    progressBar.style.width = `${100 * 2}%`;
+    progressBar.style.display = `none`;
+  }
+
+}
+
+function progressBar5(countDownDate) {
+  var now = Math.round(new Date().getTime() / 1000)
+  var startDate = Math.floor(new Date(now - 15 * 60));
+
+  const progressBar = document.getElementById('myBar-5');
+  const endDate = countDownDate;
+
+  let totalTime = endDate - startDate;
+  let progress = now - startDate;
+  let percentage = (progress / totalTime) * 100;
+  console.log(percentage);
+  if (percentage < 90) {
+    progressBar.style.width = `${percentage * 2}%`;
+  }
+  else if (percentage > 90 & percentage < 100) {
+    progressBar.style.width = `${100 * 2}%`;
+
+  }
+  else if (percentage > 100) {
+    progressBar.style.width = `${100 * 2}%`;
+    progressBar.style.display = `none`;
+  }
+
+}
+
+function progressBar6(countDownDate) {
+  var now = Math.round(new Date().getTime() / 1000)
+  var startDate = Math.floor(new Date(now - 15 * 60));
+
+  const progressBar = document.getElementById('myBar-6');
+  const endDate = countDownDate;
+
+  let totalTime = endDate - startDate;
+  let progress = now - startDate;
+  let percentage = (progress / totalTime) * 100;
+  console.log(percentage);
+  if (percentage < 90) {
+    progressBar.style.width = `${percentage * 2}%`;
+  }
+  else if (percentage > 90 & percentage < 100) {
+    progressBar.style.width = `${100 * 2}%`;
+
+  }
+  else if (percentage > 100) {
+    progressBar.style.width = `${100 * 2}%`;
+    progressBar.style.display = `none`;
+  }
+
+}
+
+/* #endregion */
+
+/* #region countdown*/
 function countDown1() {
   // Set the date we're counting down to7
   // for (var addobject of dataArrayTijdStamp) {
@@ -222,8 +299,109 @@ function countDown3() {
     console.log("Expired")
   }
   progressBar3(countDownDate);
-
 }
+
+function countDown4() {
+  // Set the date we're counting down to7
+  // for (var addobject of dataArrayTijdStamp) {
+  var countDownDate = SelfMadeTrainObject.realtime[3];
+  console.log(countDownDate);
+
+  // Get today's date and time
+  var now = Math.round(new Date().getTime() / 1000);
+  console.log(now);
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
+  var minutes = Math.floor((distance % (60 * 60)) / (60));
+  var seconds = Math.floor((distance % (60)));
+
+  // Display the result in the element with id="demo"
+  AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
+  document.getElementById("js-timer-4").innerHTML = AftelTijd;
+  console.log(AftelTijd);
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    // clearInterval(interval);
+    AftelTijd = "Trein vertrokken";
+    document.getElementById("js-timer-4").innerHTML = AftelTijd;
+    console.log("Expired")
+  }
+  progressBar4(countDownDate);
+}
+
+function countDown5() {
+  // Set the date we're counting down to7
+  // for (var addobject of dataArrayTijdStamp) {
+  var countDownDate = SelfMadeTrainObject.realtime[4];
+  console.log(countDownDate);
+
+  // Get today's date and time
+  var now = Math.round(new Date().getTime() / 1000);
+  console.log(now);
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
+  var minutes = Math.floor((distance % (60 * 60)) / (60));
+  var seconds = Math.floor((distance % (60)));
+
+  // Display the result in the element with id="demo"
+  AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
+  document.getElementById("js-timer-5").innerHTML = AftelTijd;
+  console.log(AftelTijd);
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    // clearInterval(interval);
+    AftelTijd = "Trein vertrokken";
+    document.getElementById("js-timer-5").innerHTML = AftelTijd;
+    console.log("Expired")
+  }
+  progressBar5(countDownDate);
+}
+
+
+function countDown6() {
+  // Set the date we're counting down to7
+  // for (var addobject of dataArrayTijdStamp) {
+  var countDownDate = SelfMadeTrainObject.realtime[5];
+  console.log(countDownDate);
+
+  // Get today's date and time
+  var now = Math.round(new Date().getTime() / 1000);
+  console.log(now);
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
+  var minutes = Math.floor((distance % (60 * 60)) / (60));
+  var seconds = Math.floor((distance % (60)));
+
+  // Display the result in the element with id="demo"
+  AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
+  document.getElementById("js-timer-6").innerHTML = AftelTijd;
+  console.log(AftelTijd);
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    // clearInterval(interval);
+    AftelTijd = "Trein vertrokken";
+    document.getElementById("js-timer-6").innerHTML = AftelTijd;
+    console.log("Expired")
+  }
+  progressBar6(countDownDate);
+}
+
+/* #endregion*/
 
 const showHtml = function (queryStation, dataArrayEndStation, dataArrayTijd, dataArrayDelays) {
   // console.log(InfoStations);
@@ -231,24 +409,24 @@ const showHtml = function (queryStation, dataArrayEndStation, dataArrayTijd, dat
   let html = "";
   for (const station of InfoStations) {
     // console.log(station);
-    html += `<div class="c-dashboard__item">
-            <p class="">Trein vertrekt over</p>
-            <p class="js-timer" id="js-timer-${counter + 1}">hier tijd</p>
+    html += `<div class="c-dashboard__item u-x-span-2-bp3">
+        <div class="c-item">
+          <p class="js-location">Van ${queryStation} naar ${dataArrayEndStation[counter]}</p>
+          <p class="js-currenthour">Vertrekt om ${dataArrayTijd[counter]}</p>
+          <p class="js-vertraging">met ${dataArrayDelays[counter] / 60} min vertraging</p>
         </div>
-        <div class="c-dashboard__item">
-            <p class="js-location">${queryStation}</p>
-            <p class="js-currenthour">${dataArrayTijd[counter]}</p>
-            <p class="js-vertraging">${dataArrayDelays[counter] / 60} min vertraging</p>
-        </div>
-        <div class="c-dashboard__item">
-            <p class="js-endstation">${dataArrayEndStation[counter]}</p>
-        </div>
-        <div class="c-dashboard__item_train u-x-span-3-bp3">
-            <div class="c-track" id="c-progress">
-                <svg class="c-track__train" id="myBar-${counter + 1}">
-                    <use xlink:href="#svg-train"></use>
-                </svg>
-            </div>
+            </div >
+  <div class="c-dashboard__item">
+    <p class="treinvertrek">Trein vertrekt over</p>
+    <p class="js-timer" id="js-timer-${counter + 1}">hier tijd</p>
+  </div>
+  <div class="c-dashboard__item_train u-x-span-3-bp3">
+    <div class="c-track" id="c-progress">
+      <svg class="c-track__train" id="myBar-${counter + 1}">
+        <use xlink: href="#svg-train"></use>
+                    </svg>
+  </div>
+            
         </div>`;
 
     counter += 1;
@@ -331,7 +509,15 @@ let showResultLiveBoard = function (queryResponse) {
   interval1 = setInterval(countDown1, 1000);
   interval2 = setInterval(countDown2, 1000);
   interval3 = setInterval(countDown3, 1000);
+  interval4 = setInterval(countDown4, 1000);
+  interval5 = setInterval(countDown5, 1000);
+  interval6 = setInterval(countDown6, 1000);
 };
+
+
+
+
+/* #region getLiveBoard + fetchdata */
 
 let getLiveBoard = async function (ChosenStation) {
   // Eerst bouwen we onze url op
@@ -349,6 +535,18 @@ let getLiveBoard = async function (ChosenStation) {
   // console.log(dataArray);
   showResultLiveBoard(queryResponse);
 };
+
+
+
+const fetchData = function (url) {
+  fetch(url, { headers: customHeaders })
+    .then(r => r.json())
+    .then(data => data);
+};
+
+/* #endregion */
+
+
 
 /* #region OldTrainInfo */
 // let showResultTrainInfo = function (queryResponseTrainInfo) {
@@ -407,15 +605,6 @@ let getLiveBoard = async function (ChosenStation) {
 // };
 /* #endregion */
 
-
-const fetchData = function (url) {
-  fetch(url, { headers: customHeaders })
-    .then(r => r.json())
-    .then(data => data);
-};
-
-
-
 /* #region Position */
 // arrayLatitude = [50.911054, 50.824506, 50.85586];
 // arrayLongtitude = [3.987524, 3.264549, 3.314008];
@@ -469,7 +658,28 @@ const fetchData = function (url) {
 
 /* #endregion */
 
+{/* <div class="c-dashboard__item">
+  <p class="">Trein vertrekt over</p>
+  <p class="js-timer" id="js-timer-${counter + 1}">hier tijd</p>
+</div>
+  <div class="c-dashboard__item">
+    <p class="js-location">${queryStation}</p>
+    <p class="js-currenthour">${dataArrayTijd[counter]}</p>
+    <p class="js-vertraging">${dataArrayDelays[counter] / 60} min vertraging</p>
+  </div>
+  <div class="c-dashboard__item">
+    <p class="js-endstation">${dataArrayEndStation[counter]}</p>
+  </div>
+  <div class="c-dashboard__item_train u-x-span-3-bp3">
+    <div class="c-track" id="c-progress">
+      <svg class="c-track__train" id="myBar-${counter + 1}">
+        <use xlink: href="#svg-train"></use>
+                </svg>
+  </div>
+        </div > */}
+
 document.addEventListener("DOMContentLoaded", function () {
   console.info("domcontentloaded");
   init();
 });
+
