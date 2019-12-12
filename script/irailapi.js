@@ -403,7 +403,7 @@ function countDown6() {
 
 /* #endregion*/
 
-const showHtml = function (queryStation, dataArrayEndStation, dataArrayTijd, dataArrayDelays) {
+const showHtml = function (queryStation, dataArrayEndStation, dataArrayTijd, dataArrayDelays, dataArraySpoor) {
   // console.log(InfoStations);
   let counter = 0;
   let html = "";
@@ -417,7 +417,7 @@ const showHtml = function (queryStation, dataArrayEndStation, dataArrayTijd, dat
         </div>
             </div >
   <div class="c-dashboard__item">
-    <p class="treinvertrek">Trein vertrekt over</p>
+    <p class="js-spoor">Spoor ${dataArraySpoor[counter]}</p>
     <p class="js-timer" id="js-timer-${counter + 1}">hier tijd</p>
   </div>
   <div class="c-dashboard__item_train u-x-span-3-bp3">
@@ -472,6 +472,12 @@ let showResultLiveBoard = function (queryResponse) {
     dataArrayTrajects.push(CurrentTrain);
   }
 
+  dataArraySpoor = [];
+  for (var addobject of InfoStations) {
+    let CurrentTrain = addobject.platform;
+    dataArraySpoor.push(CurrentTrain);
+  }
+
   dataArrayDelays = [];
   for (var addobject of InfoStations) {
     // console.log(tijd.time);
@@ -499,12 +505,13 @@ let showResultLiveBoard = function (queryResponse) {
   SelfMadeTrainObject.tijdstamp = dataArrayTijdStamp;
   SelfMadeTrainObject.currentstation = queryStation;
   SelfMadeTrainObject.trainid = dataArrayTrajects;
+  SelfMadeTrainObject.spoor = dataArraySpoor;
   SelfMadeTrainObject.delays = dataArrayDelays;
   SelfMadeTrainObject.realtime = dataArrayTotalTijdStamp;
   SelfMadeTrainObject.endstation = dataArrayEndStation;
   console.log(SelfMadeTrainObject);
   console.log("---------" + dataArrayTijdStamp + dataArrayDelays);
-  showHtml(queryStation, dataArrayEndStation, dataArrayTijd, dataArrayDelays);
+  showHtml(queryStation, dataArrayEndStation, dataArrayTijd, dataArrayDelays, dataArraySpoor);
   // countDown1(SelfMadeTrainObject);
   interval1 = setInterval(countDown1, 1000);
   interval2 = setInterval(countDown2, 1000);
