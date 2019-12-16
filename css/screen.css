@@ -590,6 +590,11 @@ input::placeholder {
   margin: 0 0 var(--global-whitespace);
 }
 
+.c-intro {
+  font-size: 18px;
+  color: var(--global-color-alpha-x-dark);
+  line-height: inherit;
+}
 
 
 .c-main {
@@ -662,6 +667,7 @@ input::placeholder {
   padding: var(--global-whitespace-sm);
   appearance: none;
   outline: none;
+  background-color: white;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -672,9 +678,10 @@ input::placeholder {
 }
 
 .c-custom-select__input {
-  color: var(--global-color-neutral-dark);
+  color: var(--global-color-alpha-x-dark);
   border-width: var(--global-borderWidth);
   border-radius: var(--global-borderRadius);
+  border-color: var(--global-color-alpha-x-dark);
 }
 
 .c-custom-select__symbol {

@@ -214,11 +214,12 @@ function countDown1() {
 
   // Time calculations for days, hours, minutes and seconds
   var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
-  var minutes = Math.floor((distance % (60 * 60)) / (60));
-  var seconds = Math.floor((distance % (60)));
+  var minutes = (Math.floor((distance % (60 * 60)) / (60)) < 10 ? '0' : '') + Math.floor((distance % (60 * 60)) / (60));
+  var seconds = (Math.floor((distance % (60))) < 10 ? '0' : '') + Math.floor((distance % (60)));
 
   // Display the result in the element with id="demo"
   AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
+
   document.getElementById("js-timer-1").innerHTML = AftelTijd;
   console.log(AftelTijd);
 
@@ -249,8 +250,8 @@ function countDown2() {
 
   // Time calculations for days, hours, minutes and seconds
   var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
-  var minutes = Math.floor((distance % (60 * 60)) / (60));
-  var seconds = Math.floor((distance % (60)));
+  var minutes = (Math.floor((distance % (60 * 60)) / (60)) < 10 ? '0' : '') + Math.floor((distance % (60 * 60)) / (60));
+  var seconds = (Math.floor((distance % (60))) < 10 ? '0' : '') + Math.floor((distance % (60)));
 
   // Display the result in the element with id="demo"
   AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
@@ -283,8 +284,8 @@ function countDown3() {
 
   // Time calculations for days, hours, minutes and seconds
   var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
-  var minutes = Math.floor((distance % (60 * 60)) / (60));
-  var seconds = Math.floor((distance % (60)));
+  var minutes = (Math.floor((distance % (60 * 60)) / (60)) < 10 ? '0' : '') + Math.floor((distance % (60 * 60)) / (60));
+  var seconds = (Math.floor((distance % (60))) < 10 ? '0' : '') + Math.floor((distance % (60)));
 
   // Display the result in the element with id="demo"
   AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
@@ -316,8 +317,8 @@ function countDown4() {
 
   // Time calculations for days, hours, minutes and seconds
   var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
-  var minutes = Math.floor((distance % (60 * 60)) / (60));
-  var seconds = Math.floor((distance % (60)));
+  var minutes = (Math.floor((distance % (60 * 60)) / (60)) < 10 ? '0' : '') + Math.floor((distance % (60 * 60)) / (60));
+  var seconds = (Math.floor((distance % (60))) < 10 ? '0' : '') + Math.floor((distance % (60)));
 
   // Display the result in the element with id="demo"
   AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
@@ -349,8 +350,8 @@ function countDown5() {
 
   // Time calculations for days, hours, minutes and seconds
   var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
-  var minutes = Math.floor((distance % (60 * 60)) / (60));
-  var seconds = Math.floor((distance % (60)));
+  var minutes = (Math.floor((distance % (60 * 60)) / (60)) < 10 ? '0' : '') + Math.floor((distance % (60 * 60)) / (60));
+  var seconds = (Math.floor((distance % (60))) < 10 ? '0' : '') + Math.floor((distance % (60)));
 
   // Display the result in the element with id="demo"
   AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
@@ -383,8 +384,8 @@ function countDown6() {
 
   // Time calculations for days, hours, minutes and seconds
   var hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
-  var minutes = Math.floor((distance % (60 * 60)) / (60));
-  var seconds = Math.floor((distance % (60)));
+  var minutes = (Math.floor((distance % (60 * 60)) / (60)) < 10 ? '0' : '') + Math.floor((distance % (60 * 60)) / (60));
+  var seconds = (Math.floor((distance % (60))) < 10 ? '0' : '') + Math.floor((distance % (60)));
 
   // Display the result in the element with id="demo"
   AftelTijd = hours + "h " + minutes + "min " + seconds + "sec ";
@@ -665,25 +666,7 @@ const fetchData = function (url) {
 
 /* #endregion */
 
-{/* <div class="c-dashboard__item">
-  <p class="">Trein vertrekt over</p>
-  <p class="js-timer" id="js-timer-${counter + 1}">hier tijd</p>
-</div>
-  <div class="c-dashboard__item">
-    <p class="js-location">${queryStation}</p>
-    <p class="js-currenthour">${dataArrayTijd[counter]}</p>
-    <p class="js-vertraging">${dataArrayDelays[counter] / 60} min vertraging</p>
-  </div>
-  <div class="c-dashboard__item">
-    <p class="js-endstation">${dataArrayEndStation[counter]}</p>
-  </div>
-  <div class="c-dashboard__item_train u-x-span-3-bp3">
-    <div class="c-track" id="c-progress">
-      <svg class="c-track__train" id="myBar-${counter + 1}">
-        <use xlink: href="#svg-train"></use>
-                </svg>
-  </div>
-        </div > */}
+
 
 document.addEventListener("DOMContentLoaded", function () {
   console.info("domcontentloaded");
