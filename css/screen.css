@@ -27,21 +27,33 @@
   --global-color-neutral: #e9ebf8;
   --global-color-neutral-dark: #707070;
 
+  --global-color-error: #FF3333;
+  --global-color-error-transparent: #FF3333bf;
+  --global-color-error-x-transparent: #FF33334d;
+
+
+      /* forms */
+    --global-input-error-borderColor: var(--global-color-error);
+    --global-input-error-boxShadowColor: var(--global-color-error-x-transparent);
+
+
+
   /* global page settings */
   --global-page-color: var(--global-color-neutral-xxxx-dark);
   --global-page-backgroundColor: var(--global-color-neutral-xxxx-light);
   --global-selection-backgroundColor: var(--global-color-alpha);
 
-  /* border radius */
+  /* border box */
   --global-borderRadius: 3px;
   --global-borderWidth: 1px;
+  --global-boxshadow: 0px 2px 6px 0px var(--global-color-alpha-dark);
 
   /* transitions */
   --global-transitionEasing-out: ease-out;
   --global-transitionEasing-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
   --global-transitionDuration-alpha: 0.1s;
   --global-transitionDuration-beta: 0.2s;
-  --global-transitionDuration-gamma: 0.3s;
+  --global-transitionDuration-gamma: 0.5s;
 
   /* Baseline settings */
   --global-baseline: 8px;
@@ -561,6 +573,14 @@ input::placeholder {
   
 }
 
+.c-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--global-color-alpha-dark);
+  padding: var(--global-whitespace-sm);
+}
+
 .c-logo {
   height: var(--global-whitespace-lg);
   display: flex;
@@ -581,6 +601,13 @@ input::placeholder {
 .c-logo__title {
   width: 100%;
   margin: 0 0 var(--global-whitespace);
+  padding: 0px var(--global-whitespace) 0px 0px;
+}
+
+.c-logo__footer {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
 }
 
 .c-logo__ending {
@@ -591,9 +618,16 @@ input::placeholder {
 }
 
 .c-intro {
+  display: flex;
+    justify-content: center;
+}
+
+.c-intro__text {
   font-size: 18px;
   color: var(--global-color-alpha-x-dark);
   line-height: inherit;
+  width: 50%;
+  text-align: center;
 }
 
 
@@ -604,11 +638,9 @@ input::placeholder {
 }
 
 .c-dashboard__item {
-  box-shadow: 0px 2px 6px 0px var(--global-color-alpha-dark);
+  box-shadow: var(--global-boxshadow);
   margin: var(--global-whitespace-sm);
   background-color: var(--global-color-neutral-light);
-  /* display: flex;
-  justify-content: flex-start; */
 }
 
 
@@ -630,6 +662,11 @@ input::placeholder {
   display: block;
 }
 
+.c-form-field--option {
+    display: flex;
+    align-items: center;
+}
+
 .c-location{
   display: flex;
   justify-content: center;
@@ -648,6 +685,47 @@ input::placeholder {
   color: var(--global-color-neutral-dark);
   justify-content: center;
 }
+
+/*
+    Component: Label
+    ---
+    Class to put on all form labels
+*/
+
+.c-label--option {
+    padding-bottom: 0;
+}
+
+.c-label__error-message {
+    font-weight: 600;
+	float: right;
+	display: none;
+}
+
+.c-label__error-message.is-visible {
+	display: block;
+}
+
+.c-label--floating {
+    position: absolute;
+    top: calc(var(--global-baseline) * 2);
+    left: var(--global-whitespace-sm);
+    padding: 0  var(--global-whitespace-sm);
+    background-color: var(--global-color-neutral-light);
+    transition: transform var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+    z-index: 1;
+}
+
+.is-floating,
+.c-form-field:focus-within .c-label--floating {
+    transform: translateY(calc(var(--global-baseline) * -3))
+}
+
+@media (prefers-color-scheme: dark) {
+    .c-label--floating {
+        --label--floating-backgroundColor: transparent;
+    }
+}
 /*
     Component: Custom Select
     ---
@@ -661,16 +739,20 @@ input::placeholder {
 
 .c-input {
   font-family: inherit;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px; /*-> 1.5 keer fontsize */
   width: 100%;
   padding: var(--global-whitespace-sm);
   appearance: none;
   outline: none;
-  background-color: white;
+  background-color: var(--global-color-neutral-light);
   -webkit-appearance: none;
   -moz-appearance: none;
+    border-width: var(--global-borderWidth);
+  border-radius: var(--global-borderRadius);
 }
+
+
 
 .c-custom-select{
   display: block;
@@ -678,11 +760,16 @@ input::placeholder {
 }
 
 .c-custom-select__input {
-  color: var(--global-color-alpha-x-dark);
-  border-width: var(--global-borderWidth);
-  border-radius: var(--global-borderRadius);
-  border-color: var(--global-color-alpha-x-dark);
+  color: var(--global-color-neutral-dark);
+  border-color: var(--global-color-neutral-dark);
 }
+
+.c-custom-select__input:hover {
+  color: var(--global-color-alpha-x-dark);
+  border-color: var(--global-color-alpha-x-dark);
+  box-shadow: var(--global-boxshadow);
+}
+
 
 .c-custom-select__symbol {
   width: 24px;
@@ -691,7 +778,33 @@ input::placeholder {
   top: 10px;
   right: 12px;
   pointer-events: none;
+  fill: var(--global-color-neutral-dark);
+}
+
+.c-custom-select__input:hover + .c-custom-select__symbol {
   fill: var(--global-color-alpha-x-dark);
+}
+
+
+.c-input__email{
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px; /*-> 1.5 keer fontsize */
+  width: 100%;
+  padding: var(--global-whitespace-sm);
+  appearance: none;
+  outline: none;
+  background-color: var(--global-color-neutral-light);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+    border-width: var(--global-borderWidth);
+  border-radius: var(--global-borderRadius);
+}
+
+.c-input__email:hover {
+  color: var(--global-color-alpha-x-dark);
+  border-color: var(--global-color-alpha-x-dark);
+  box-shadow: var(--global-boxshadow);
 }
 
 /*------------------------------------*\
@@ -713,6 +826,20 @@ input::placeholder {
   position: absolute;
   bottom: 5px;
   left: 100% - 100px;
+  transition: width var(--global-transitionDuration-gamma) var(--global-transitionEasing-out);
+}
+
+
+/*------------------------------------*\
+#States
+\*------------------------------------*/
+
+.has-error {
+    --label-color: var(--global-color-error);
+    --input-borderColor: var(--global-input-error-borderColor);
+    --input-hover-borderColor: var(--global-input-error-borderColor);
+    --input-focus-borderColor: var(--global-input-error-borderColor);
+    --input-focus-boxShadowColor: var(--global-input-error-boxShadowColor);
 }
 
 /*------------------------------------*\
@@ -738,6 +865,10 @@ input::placeholder {
     ---
     Utility classes to span my elements over the grid
 */
+.u-x-span-1-bp3 {
+  grid-column: span 1;
+}
+
 .u-x-span-2-bp3 {
   grid-column: span 2;
 }
@@ -750,6 +881,14 @@ input::placeholder {
 .u-y-span-2-bp3 {
   grid-row: span 2;
 }
+
+@media screen and (max-width: 992px) {
+.u-x-span-1-bp3 {
+  grid-column: span 1;
+  min-width: 100px;
+}
+}
+
 
 /*
     Utilities: spacing

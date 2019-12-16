@@ -1,6 +1,10 @@
 let customHeaders = new Headers();
 customHeaders.append("Accept", "application/json");
 
+let email = {},
+  password = {},
+  signInButton;
+
 URI = "https://api.irail.be";
 var MyDateString = "";
 var SelfMadeTrainObject = {};
@@ -417,13 +421,13 @@ const showHtml = function (queryStation, dataArrayEndStation, dataArrayTijd, dat
           <p class="js-vertraging">met ${dataArrayDelays[counter] / 60} min vertraging</p>
         </div>
             </div >
-  <div class="c-dashboard__item">
+  <div class="c-dashboard__item u-x-span-1-bp3">
     <p class="js-spoor">Spoor ${dataArraySpoor[counter]}</p>
     <p class="js-timer" id="js-timer-${counter + 1}">hier tijd</p>
   </div>
   <div class="c-dashboard__item_train u-x-span-3-bp3">
     <div class="c-track" id="c-progress">
-      <svg class="c-track__train" id="myBar-${counter + 1}">
+      <svg class="c-track__train" id="myBar-${counter + 1}" style="width: 0%;">
         <use xlink: href="#svg-train"></use>
                     </svg>
   </div>
@@ -453,8 +457,8 @@ let showResultLiveBoard = function (queryResponse) {
     // console.log(tijd.time);
     let timestamp = addobject.time;
     let MyTrainTime = new Date(timestamp * 1000);
-    Hour = MyTrainTime.getHours();
-    Minute = MyTrainTime.getMinutes();
+    Hour = (MyTrainTime.getHours() < 10 ? '0' : '') + MyTrainTime.getHours();
+    Minute = (MyTrainTime.getMinutes() < 10 ? '0' : '') + MyTrainTime.getMinutes();
     NewTrainTime = Hour.toString() + ":" + Minute.toString();
     dataArrayTijd.push(NewTrainTime);
   }
@@ -521,7 +525,6 @@ let showResultLiveBoard = function (queryResponse) {
   interval5 = setInterval(countDown5, 1000);
   interval6 = setInterval(countDown6, 1000);
 };
-
 
 
 
@@ -672,4 +675,3 @@ document.addEventListener("DOMContentLoaded", function () {
   console.info("domcontentloaded");
   init();
 });
-

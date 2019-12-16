@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/screen.css">
 
+    <script defer src="./script/validation.js"></script>
 </head>
 
 <body>
@@ -86,11 +87,38 @@
     </header>
     <section class="o-row">
         <div class="o-container">
-            <h1 class="c-intro">
-                Instatrain is een nieuwe treinapp waarmee je kan zien of je jouw trein wel gaat halen.
-            </h1>
+            <div class="c-intro">
+                <h1 class="c-intro__text">
+                    InstaTrain is een nieuwe treinapp waarmee je kan zien welke treinen in jouw station gaan aankomen,
+                    aangekomen zijn of
+                    net vertrokken zijn.
+                </h1>
+            </div>
+            <form action="#">
+                <p class="c-form-field js-email-field">
+                    <label class="c-label js-email-label" for="username">
+                        Email address
+                        <span class="c-label__error-message js-email-error-message">
+                            This field is required
+                        </span>
+                    </label>
+                    <input class="c-input__email js-email-input" type="email" name="username" id="username"
+                        placeholder="Vb. john@doe.com" required>
+                </p>
+            </form>
+            <img src="img\png\SmartPhone.png" alt="Mock-up InstaTreinApp">
         </div>
     </section>
+    <footer class="o-row--header">
+        <div class="o-container">
+            <div class="c-footer">
+                <div class="c-logo">
+                    <p class="c-logo__footer">Copyright Ⓒ 2019 InstaTrain webapp ------
+                        Hulp nodig? info@student.howest.be</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
