@@ -277,6 +277,26 @@ input::placeholder {
   color: var(--global-placeholder-color);
 }
 
+body{ 
+  display:flex; 
+  flex-direction:column; 
+}
+
+footer{
+  margin-top:auto; 
+}
+
+@media (min-width: 992px) {
+  footer{
+   position:absolute;
+   bottom:0;
+   width:100%;
+   flex-direction: column;
+   height: var(--global-whitespace-xl);   /* Height of the footer */
+}}
+
+
+
 /*------------------------------------*\
 #OBJECTS
 \*------------------------------------*/
@@ -576,7 +596,7 @@ input::placeholder {
 .c-footer {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   background-color: var(--global-color-alpha-dark);
   padding: var(--global-whitespace-sm);
 }
@@ -608,6 +628,7 @@ input::placeholder {
   width: 100%;
   font-size: 12px;
   text-align: center;
+  align-content: flex-end;
 }
 
 .c-logo__ending {
@@ -617,17 +638,49 @@ input::placeholder {
   margin: 0 0 var(--global-whitespace);
 }
 
+
 .c-intro {
   display: flex;
-    justify-content: center;
+  justify-content: center;
+    grid-column: span 2;
 }
 
 .c-intro__text {
-  font-size: 18px;
+  font-size: 26px;
   color: var(--global-color-alpha-x-dark);
   line-height: inherit;
   width: 50%;
   text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+.c-intro {
+  display: flex;
+  justify-content: center;
+  grid-column: span 1;
+  min-width: 100px;
+}
+
+}
+
+@media screen and (min-width: 1026px) {
+.c-landing{
+  padding: 0px 100px;
+}
+}
+
+.c-uitleg {
+  display: flex;
+  justify-content: center;
+}
+
+.c-uitleg__text {
+  font-size: 18px;
+  color: var(--global-color-alpha-x-dark);
+  margin: var(--global-whitespace);
+  line-height: inherit;
+  width: 100%;
+  text-align: left;
 }
 
 
@@ -660,6 +713,8 @@ input::placeholder {
 .c-form-field {
   position: relative;
   display: block;
+  align-content: center;
+  margin: var(--global-whitespace);
 }
 
 .c-form-field--option {
@@ -762,6 +817,7 @@ input::placeholder {
 .c-custom-select__input {
   color: var(--global-color-neutral-dark);
   border-color: var(--global-color-neutral-dark);
+  transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
 }
 
 .c-custom-select__input:hover {
@@ -799,13 +855,10 @@ input::placeholder {
   -moz-appearance: none;
     border-width: var(--global-borderWidth);
   border-radius: var(--global-borderRadius);
+  align-items: center;
 }
 
-.c-input__email:hover {
-  color: var(--global-color-alpha-x-dark);
-  border-color: var(--global-color-alpha-x-dark);
-  box-shadow: var(--global-boxshadow);
-}
+
 
 /*------------------------------------*\
 #Progressbar
@@ -830,6 +883,40 @@ input::placeholder {
 }
 
 
+
+/*
+    Component: Button
+    ---
+    Class to put on form buttons or
+*/
+
+.c-button {
+    font-size: 16px;
+    border-radius: var(--global-borderRadius);
+    border: var(--global-borderWidth) solid var(--global-color-alpha-x-dark);
+    background-color:  var(--global-color-alpha-dark);
+    color: #fff;
+    padding: var(--global-whitespace-sm) ;
+    line-height: 24px;
+    width: 100%;
+    outline: none;
+    transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+}
+
+.c-button:hover {
+    background-color: var(--global-color-alpha-light);
+    box-shadow: var(--global-boxshadow);
+}
+
+.c-button:focus {
+    background-color:  var(--global-color-alpha-light);
+    box-shadow: var(--global-boxshadow);
+}
+
+.c-button:active {
+    background-color: var(--button-hover-backgroundColor, var(--global-color-alpha-light));
+    box-shadow: var(--global-boxshadow);            
+}
 /*------------------------------------*\
 #States
 \*------------------------------------*/

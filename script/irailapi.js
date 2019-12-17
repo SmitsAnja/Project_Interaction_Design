@@ -1,17 +1,11 @@
 let customHeaders = new Headers();
 customHeaders.append("Accept", "application/json");
 
-let email = {},
-  password = {},
-  signInButton;
 
 URI = "https://api.irail.be";
 var MyDateString = "";
 var SelfMadeTrainObject = {};
 var AftelTijd = "";
-var interval1;
-var interval2;
-var interval3;
 
 const init = function () {
   // getLocation();
@@ -423,7 +417,7 @@ const showHtml = function (queryStation, dataArrayEndStation, dataArrayTijd, dat
             </div >
   <div class="c-dashboard__item u-x-span-1-bp3">
     <p class="js-spoor">Spoor ${dataArraySpoor[counter]}</p>
-    <p class="js-timer" id="js-timer-${counter + 1}">hier tijd</p>
+    <p class="js-timer" id="js-timer-${counter + 1}">0h 00min 00sec</p>
   </div>
   <div class="c-dashboard__item_train u-x-span-3-bp3">
     <div class="c-track" id="c-progress">
