@@ -537,8 +537,9 @@ let getLiveBoard = async function (ChosenStation) {
     // console.log(object);
     dataArray.push(object.station);
   }
-  // console.log(dataArray);
-  showResultLiveBoard(queryResponse);
+  console.log("-----------------------------");
+  // showResultLiveBoard(queryResponse);
+  // intervalReload = setInterval(getLiveBoard, 1000);
 };
 
 

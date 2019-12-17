@@ -675,7 +675,6 @@ footer{
 }
 
 .c-uitleg__text {
-  font-size: 18px;
   color: var(--global-color-alpha-x-dark);
   margin: var(--global-whitespace);
   line-height: inherit;
