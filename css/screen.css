@@ -46,6 +46,7 @@
   /* border box */
   --global-borderRadius: 3px;
   --global-borderWidth: 1px;
+  --global-borderWidth-md: calc(var(--global-borderWidth)*1.5);
   --global-boxshadow: 0px 2px 6px 0px var(--global-color-alpha-dark);
 
   /* transitions */
@@ -67,25 +68,18 @@
   --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
   --global-whitespace-xxxl: calc(var(--global-whitespace) * 5); /*  = 120px */
 
-  /* forms */
+  /* fontsizes */
+  --global-fontsize-xxs: 12px;
+  --global-fontsize-xs: 14px;
+  --global-fontsize-sm: 16px;
+  --global-fontsize: 18px;
+  --global-fontsize-md: 20px;
+  --global-fontsize-l: 26px;
+  --global-fontsize-xl: 36px;
+  --global-fontsize-xxl: 40px;
+   
 }
 
-/* @media (prefers-color-scheme: dark) {
-    :root {
-        --global-page-color: White;
-        --global-page-backgroundColor: var(--global-color-neutral-xxxx-dark);
-
-        --global-label-color: var(--global-color-neutral-xx-light);
-        --global-placeholder-color: var(--global-color-neutral-dark);
-        --global-input-backgroundColor: var(--global-color-neutral-xxxx-dark);
-        --global-input-color: var(--global-color-neutral-xxxx-light);
-        --global-input-borderColor: var(--global-input-backgroundColor);
-        --global-input-hover-borderColor: var(--global-input-backgroundColor);
-        --global-input-focus-borderColor: var(--global-input-backgroundColor);
-        --global-input-focus-boxShadowColor: var(--global-color-alpha-transparent);
-        --global-input-error-boxShadowColor: var(--global-color-error-transparent);
-    }
-} */
 
 /*------------------------------------*\
 #GENERIC
@@ -100,7 +94,7 @@
 html {
   background-color: white;
   color: var(--global-color-neutral-dark);
-  font-size: 18px;
+  font-size: var(--global-fontsize);
   line-height: 1.5;
   font-family: "Yantramanav", Helvetica, arial, sans-serif;
   box-sizing: border-box;
@@ -124,13 +118,13 @@ html {
 
 ::-moz-selection {
   background: var(--global-selection-backgroundColor);
-  color: white;
+  color: var(--global-color-neutral-light);
   text-shadow: none;
 }
 
 ::selection {
   background: var(--global-selection-backgroundColor);
-  color: white;
+  color: var(--global-color-neutral-light);
   text-shadow: none;
 }
 
@@ -162,20 +156,20 @@ h3 {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: var(--global-fontsize-xl);
   line-height: calc(var(--global-baseline) * 6);
   /* margin: 0 0 var(--global-whitespace); */
   color: var(--global-color-neutral);
 }
 
 h2 {
-  font-size: 20px;
+  font-size: var(--global-fontsize-md);
   line-height: calc(var(--global-baseline) * 5);
   margin: 0 0 var(--global-whitespace);
 }
 
 h3 {
-  font-size: 26px;
+  font-size: var(--global-fontsize-l);
   line-height: calc(var(--global-baseline) * 4);
   margin: 0 0 var(--global-whitespace);
 }
@@ -183,7 +177,7 @@ h3 {
 h4,
 h5,
 h6 {
-  font-size: 16px;
+  font-size: var(--global-fontsize-sm);
   font-weight: 600;
   line-height: calc(var(--global-baseline) * 3);
   margin: 0 0 var(--global-whitespace);
@@ -310,7 +304,7 @@ footer{
 .o-row {
   position: relative;
   padding: var(--global-whitespace-sm);
-  font-size: 14px;
+  font-size: var(--global-fontsize-xs);
 }
 
 /* size modifiers */
@@ -333,7 +327,7 @@ footer{
   .o-row {
     padding-left: var(--global-whitespace-xxl);
     padding-right: var(--global-whitespace-xxl);
-    font-size: 18px;
+    font-size: var(--global-fontsize);
   }
 }
 
@@ -344,12 +338,6 @@ footer{
   }
 }
 
-/* @media (min-width: 992px) {
-  .o-row--xl {
-    padding-top: 96px;
-    padding-bottom: 72px;
-  }
-} */
 
 
 
@@ -606,7 +594,7 @@ footer{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40px;
+  font-size: var(--global-fontsize-xxl);
   background-color: var(--global-color-alpha-dark);
   color: var(--global-color-neutral-light);
 }
@@ -614,7 +602,7 @@ footer{
 .c-logo__symbol {
   display: flex;
   height: 300%;
-  font-size: 18px;
+  font-size: var(--global-fontsize);
   justify-content: flex-start;
 }
 
@@ -626,7 +614,7 @@ footer{
 
 .c-logo__footer {
   width: 100%;
-  font-size: 12px;
+  font-size: var(--global-fontsize-xxs);
   text-align: center;
   align-content: flex-end;
 }
@@ -646,7 +634,7 @@ footer{
 }
 
 .c-intro__text {
-  font-size: 26px;
+  font-size: var(--global-fontsize-l);
   color: var(--global-color-alpha-x-dark);
   line-height: inherit;
   width: 50%;
@@ -703,6 +691,34 @@ footer{
   }
 }
 
+
+@media screen and (min-width: 768px) {
+  .c-smartphone_long{ 
+    display: none;
+}
+.c-smartphone{
+  display: flex;
+}
+}
+
+@media screen and (min-width: 1024px) {
+  .c-smartphone_long{ 
+    display: flex;
+}
+.c-smartphone{
+  display: none;
+}
+}
+@media screen and (min-width: 1440px) {
+  .c-smartphone_long{
+    display: none;
+}
+.c-smartphone{
+  display: flex;
+}
+}
+
+
 /*
     Component: Forms
     ---
@@ -733,10 +749,10 @@ footer{
 
 .c-label {
   margin-bottom: 0;
-  font-size: 20px;
+  font-size: var(--global-fontsize-md);
   padding-bottom: var(--global-whitespace-sm);
   line-height: calc(var(--global-baseline) * 2);
-  color: var(--global-color-neutral-dark);
+  color: var(--label-color, var(--global-color-neutral-dark));
   justify-content: center;
 }
 
@@ -751,7 +767,7 @@ footer{
 }
 
 .c-label__error-message {
-    font-weight: 600;
+  font-size: var(--global-fontsize-sm);
 	float: right;
 	display: none;
 }
@@ -793,7 +809,7 @@ footer{
 
 .c-input {
   font-family: inherit;
-  font-size: 16px;
+  font-size: var(--global-fontsize-sm);
   line-height: 24px; /*-> 1.5 keer fontsize */
   width: 100%;
   padding: var(--global-whitespace-sm);
@@ -802,7 +818,7 @@ footer{
   background-color: var(--global-color-neutral-light);
   -webkit-appearance: none;
   -moz-appearance: none;
-    border-width: var(--global-borderWidth);
+  border: var(--input-borderWidth, var(--global-borderWidth)) solid var(--input-borderColor, var(--global-color-neutral-dark));
   border-radius: var(--global-borderRadius);
 }
 
@@ -815,16 +831,21 @@ footer{
 
 .c-custom-select__input {
   color: var(--global-color-neutral-dark);
-  border-color: var(--global-color-neutral-dark);
   transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
 }
 
 .c-custom-select__input:hover {
   color: var(--global-color-alpha-x-dark);
-  border-color: var(--global-color-alpha-x-dark);
+  border-color: var(--input-hover-borderColor, var(--global-color-alpha-x-dark));
   box-shadow: var(--global-boxshadow);
 }
 
+
+.c-custom-select__input:focus,
+.c-custom-select__input:active {
+    border-color: var(--input-focus-borderColor, var(--global-color-alpha-x-dark));
+    border-width: var(--global-borderWidth-md);
+}
 
 .c-custom-select__symbol {
   width: 24px;
@@ -843,7 +864,7 @@ footer{
 
 .c-input__email{
   font-family: inherit;
-  font-size: 16px;
+  font-size: var(--global-fontsize-sm);
   line-height: 24px; /*-> 1.5 keer fontsize */
   width: 100%;
   padding: var(--global-whitespace-sm);
@@ -852,9 +873,10 @@ footer{
   background-color: var(--global-color-neutral-light);
   -webkit-appearance: none;
   -moz-appearance: none;
-    border-width: var(--global-borderWidth);
+  border-width: var(--global-borderWidth);
   border-radius: var(--global-borderRadius);
   align-items: center;
+  border-color: var(--input-borderWidth, var(--global-borderWidth)) solid var(--input-borderColor, var(--global-color-neutral-dark));
 }
 
 
@@ -890,7 +912,7 @@ footer{
 */
 
 .c-button {
-    font-size: 16px;
+    font-size: var(--global-fontsize-sm);
     border-radius: var(--global-borderRadius);
     border: var(--global-borderWidth) solid var(--global-color-alpha-x-dark);
     background-color:  var(--global-color-alpha-dark);

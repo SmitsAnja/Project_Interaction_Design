@@ -25,9 +25,9 @@ const doubleCheckEmailAddress = function () {
 	} else {
 		// Stuk herhalende code.
 		if (isEmpty(email.input.value)) {
-			email.errorMessage.innerText = 'This field is required';
+			email.errorMessage.innerText = 'Gelieve het veld in te vullen';
 		} else {
-			email.errorMessage.innerText = 'Invalid emailaddress';
+			email.errorMessage.innerText = 'Ongeldig e-mailadres';
 		}
 	}
 };
@@ -57,9 +57,9 @@ const enableListeners = function () {
 	email.input.addEventListener('blur', function () {
 		if (!isValidEmailAddress(email.input.value)) {
 			if (isEmpty(email.input.value)) {
-				email.errorMessage.innerText = 'This field is required';
+				email.errorMessage.innerText = 'Gelieve het veld in te vullen';
 			} else {
-				email.errorMessage.innerText = 'Invalid emailaddress';
+				email.errorMessage.innerText = 'Ongeldig e-mailadres';
 			}
 
 			addErrors(email);
